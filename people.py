@@ -60,8 +60,7 @@ def read_one(lname):
 
     # otherwise, nope, not found
     else:
-        abort(404, 'Person with last name {lname} not found'.format(
-            lname=lname))
+        abort(404, f'Person with last name {lname} not found')
 
     return person
 
@@ -87,8 +86,7 @@ def create(person):
 
     # Otherwise, they exist, that's an error
     else:
-        abort(406, 'Peron with last name {lname} already exists'.format(
-            lname=lname))
+        abort(406, f'Peron with last name {lname} already exists')
 
 
 def update(lname, person):
@@ -107,8 +105,7 @@ def update(lname, person):
 
     # otherwise, nope, that's an error
     else:
-        abort(404, 'Person with last name {lname} not found'.format(
-            lname=lname))
+        abort(404, f'Person with last name {lname} not found')
 
 
 def delete(lname):
@@ -120,10 +117,8 @@ def delete(lname):
     # Does the person to delete exist?
     if lname in PEOPLE:
         del PEOPLE[lname]
-        return make_response('{lname} successfully deleted'.format(
-            lname=lname), 200)
+        return make_response(f'{lname} successfully deleted', 200)
 
     # Otherwise, nope, person to delete not found
     else:
-        abort(404, 'Person with last name {lname} not found'.format(
-            lname=lname))
+        abort(404, f'Person with last name {lname} not found')
